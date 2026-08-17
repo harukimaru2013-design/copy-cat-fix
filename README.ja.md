@@ -8,12 +8,10 @@ Create は `6.0.7` / `6.0.8` で動作確認しています。
 
 ## バグについて
 
-Copycat の Panel(パネル)および Sliding Door(引き戸)ブロックは、素材(Material)を挿入した状態で
-スケマティック経由で配置すると、その素材が失われ(空の Copycat Base に戻る)ます — 手動でスケマティックを印刷した場合
-(スケマティックを持ち、ゴースト配置で右クリックしてクリエイティブで「print」)でも、
-Schematicannon から発射した場合でも同様です。
+Copycat の 一部ブロックは、素材(Material)を挿入した状態で
+概略図で配置すると、その素材が失われ空の Copycat Base に戻る
 
-他の Copycat タイプ(Beam、Slab、Step、Ladder、…)には影響しません。
+
 
 ## 根本原因
 
@@ -27,7 +25,7 @@ ICopycatBlock#getAcceptedBlockState(level, pos, consumedItem, null)
 これが失敗すると、素材(material)と消費されたアイテム(consumed item)が黙って空(`AllBlocks.COPYCAT_BASE`)に
 リセットされます — しかし `Material` タグ自体は数行前に正しく読み取られています。
 
-スケマティックで配置された Panel / Sliding Door ブロックの場合、読み込み時に `consumedItem`(どのアイテムで
+スケマティックで配置された一部ブロックの場合、読み込み時に `consumedItem`(どのアイテムで
 コピーキャットを埋めたかを記録する "Item" NBT タグ)が空になることがあります。
 空のアイテム(`ItemStack.EMPTY.getItem()` が `BlockItem` ではない)に対して `getAcceptedBlockState` は
 すぐに `null` を返すため、再検証は常に失敗し、正当な保存済み素材が消去されてしまいます。
@@ -49,24 +47,8 @@ ICopycatBlock#getAcceptedBlockState(level, pos, consumedItem, null)
 - [Create](https://modrinth.com/mod/create) **6.0.7+**
 - [Copycats+](https://modrinth.com/mod/copycats) **3.0.7+**
 
-## インストール方法
 
-1. 最新の `copycatfix-*.jar` を [Releases](https://github.com/harukimaru2013-design/copy-cat-fix/releases)
-   ページからダウンロードします。
-2. Create と Copycats+ と同じ `mods` フォルダに jar を入れてください(Copycats+ の jar を置き換えたり
-   変更したりしないでください — この mod は上書きせず併用します)。
-3. これはワールド / スケマティックの読み込み時に動作するデータ整合性の修正なので、クライアントとサーバー
-   両方にインストールしてください(シングルプレイでも同様です)。
 
-## ソースからビルドする
-
-```
-git clone https://github.com/harukimaru2013-design/copy-cat-fix.git
-cd copy-cat-fix
-./gradlew build
-```
-
-ビルドされた jar は `build/libs/copycatfix-<version>.jar` に出力されます。
 
 ## ライセンス
 
