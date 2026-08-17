@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# Forge / Minecraft run environment
+run/
+run-data/
+logs/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gradle wrapper (keep the jar, ignore local props if any)
+!gradle/wrapper/gradle-wrapper.jar
+
+build_log*.txt

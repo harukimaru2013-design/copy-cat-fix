@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "example.copycatfix.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "remap": false,
+  "mixins": [
+    "ICopycatBlockEntityMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
