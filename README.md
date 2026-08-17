@@ -49,7 +49,7 @@ for the full implementation and reasoning.
 
 ## Installation
 
-1. Download the latest `copycatfix-*.jar` from the [Releases](../../releases) page.
+1. Download the latest `copycatfix-*.jar` from the [Releases](https://github.com/harukimaru2013-design/copy-cat-fix/releases) page.
 2. Drop it into your `mods` folder alongside Create and Copycats+ (**do not** replace or modify
    the Copycats+ jar — this mod works alongside it).
 3. This is a **data-integrity fix that runs on world/schematic load**, so install it on **both the
@@ -58,8 +58,8 @@ for the full implementation and reasoning.
 ## Building from source
 
 ```
-git clone https://github.com/<your-username>/copycatfix.git
-cd copycatfix
+git clone https://github.com/harukimaru2013-design/copy-cat-fix.git
+cd copy-cat-fix
 ./gradlew build
 ```
 
