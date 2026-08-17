@@ -1,3 +1,5 @@
+English | [日本語](README.ja.md)
+
 # Copycatfix
 
 A small [Minecraft Forge](https://files.minecraftforge.net/) mixin patch mod for **Minecraft 1.20.1**
